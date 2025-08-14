@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sistema de OS - Etiquetas</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" type="image/x-icon" href="img/Lavishlogo.ico">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <button id="toggleTheme" class="nav-btn">Tema Claro/Escuro</button>
+    <div class="brand">
+      <div class="logo">KM</div>
+      <div class="title">Criador de Etiquetas</div>
+    </div>
+    <nav class="nav">
+      <button id="btnNova" class="nav-btn active">Nova Etiqueta</button>
+      <button id="btnVer" class="nav-btn">Ver Etiqueta</button>
+      <button id="btnPasta" class="nav-btn">Selecionar Pasta</button>
+      <button id="btnLimpar" class="nav-btn danger">Limpar Dados</button>
+    </nav>
+    <div class="storage-info" id="storageInfo">Salvando: navegador</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="top-left">Etiquetas</div>
+      <div class="top-right" id="counter">0 Etiqueta</div>
+    </header>
+
+    <section class="content">
+      <section class="panel panel-form" id="panelForm">
+        <h3>Criar Etiqueta</h3>
+        <form id="osForm" class="form">
+          <div class="row">
+            <label class="field">
+              <span>Cliente</span>
+              <input id="cliente" type="text" required />
+            </label>
+            <label class="field">
+              <span>Tipo</span>
+              <select id="tipo" required>
+                <option value="">Selecione</option>
+                <option>Desktop PC</option>
+                <option>Notebook</option>
+                <option>TV Box</option>
+                <option>NUC</option>
+                <option>All in One</option>
+                <option>MacBook</option>
+                <option>iMac</option>
+                <option>SSD</option>
+                <option>HD MECÂNICO</option>
+                <option>Roteador</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="extraFields" style="display:none;"></div>
+
+          <label class="field">
+            <span>Especificações</span>
+            <textarea id="especificacoes" rows="3" required></textarea>
+          </label>
+
+          <label class="field">
+            <span>Serviços realizados</span>
+            <textarea id="servicos" rows="3" required></textarea>
+          </label>
+
+          <div class="row">
+            <label class="field">
+              <span>Técnico</span>
+              <input id="tecnico" type="text" required />
+            </label>
+
+            <label class="field">
+              <span>Teste SSD</span>
+              <select id="testeSSD">
+                <option value="Não testado">Não testado</option>
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Estado do SSD (se aplicável)</span>
+            <select id="estadoSSD">
+              <option value="">—</option>
+              <option>Bom</option>
+              <option>Médio</option>
+              <option>Ruim</option>
+            </select>
+          </label>
+
+          <div class="form-actions">
+            <div class="storage-choice">
+              <label><input type="radio" name="storage" value="localStorage" /> Salvar no navegador</label>
+              <label><input type="radio" name="storage" value="folder" checked /> Salvar na pasta local</label>
+            </div>
+            <div class="buttons">
+              <button type="submit" class="btn primary">Criar OS</button>
+              <button type="button" id="btnGerarEtiqueta" class="btn outline">Gerar Etiqueta</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel panel-list" id="panelList" style="display:none;">
+        <h3>Lista de OS</h3>
+        <div class="list" id="list"></div>
+      </section>
+    </section>
+
+    <footer class="footer">Gerador de Etiquetas By: DaviSCR - 2025 V1.0</footer>
+  </main>
+</div>
+
+<div id="modalOverlay" class="modal-overlay" style="display:none;">
+  <div class="modal">
+    <div class="modal-message" id="modalMessage"></div>
+    <div class="modal-buttons" id="modalButtons"></div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
